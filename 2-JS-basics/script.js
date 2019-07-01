@@ -666,4 +666,15 @@ let tipCalculator = {
 }
 
 tipCalculator.calcTip();
-console.log(tipCalculator.tipAmounts, tipCalculator.finalAmounts);
+console.log(tipCalculator);
+
+function calcAverage(tips) {
+    var sum = 0;
+    for(i = 0; i < tips.length; i++) {
+        sum = sum + tips[i]
+    }
+    return sum / tips.length;
+}
+
+tipCalculator.average = calcAverage(tipCalculator.tipAmounts);
+console.log(tipCalculator.average);
