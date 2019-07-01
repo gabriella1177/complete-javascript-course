@@ -645,23 +645,22 @@ GOOD LUCK 😀
 
 let tipCalculator = {
     bills: [124, 48, 268, 180, 42],
-    tipAmounts: [],
-    finalAmounts: [],
     calcTip: function(){
-        let billsArray = this.bills;
-        let tipAmounts = this.tipAmounts;
-        let finalAmounts = this.finalAmounts;
-        for(i = 0; i < billsArray.length; i++){
-            if(billsArray[i] < 50) {
-                percentage = .5;
-            } else if(billsArray[i] >= 50 && billsArray[i] < 200){
+        this.tipAmounts = [];
+        this.finalAmounts = [];
+        for(i = 0; i < this.bills.length; i++){
+            let percentage;
+            let bill = this.bills[i];
+            if(bill < 50) {
+                percentage = .2;
+            } else if(bill >= 50 && bill < 200){
                 percentage = .15;
             } else {
                 percentage = .10;
             }
-            let calcluatedTip = billsArray[i] * percentage;
-            tipAmounts.push(calcluatedTip);
-            finalAmounts.push(billsArray[i] + calcluatedTip);
+            let calcluatedTip = bill * percentage;
+            this.tipAmounts[i] = calcluatedTip;
+            this.finalAmounts[i] = bill + calcluatedTip;
         }
     }
 }
