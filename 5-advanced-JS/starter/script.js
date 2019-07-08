@@ -125,3 +125,76 @@ console.log(rates);
 */
 /////////////////////////////////////////
 // Lecture: Functions Returning Functions
+/*
+function interviewQuestion(job){
+    if(job === 'designer'){
+        return function(name){
+            console.log(`${name}, can you please explain what UX design is?`);
+        }
+    } else if (job === 'teacher') {
+        return function(name){
+            console.log(`What subject do you teach, ${name}?`);
+        }
+    } else {
+        return function(name){
+            console.log(`Hello ${name}, what do you do?`)
+        }
+    }
+}
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('John');
+
+teacherQuestion('John');
+designerQuestion('John');
+
+interviewQuestion('teacher')('Mark');
+
+*/
+
+/////////////////////////////////////
+// Lecture: IIFE
+/*
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+game();
+
+(function(){
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+)();
+
+(function(goodLuck){
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+}
+)(5);
+
+*/
+
+///////////////////////////////////////
+// Lecture: Closures
+
+function retirement(retirementAge){
+    var a = ' years left until retirement.'
+    return function(yearOfBirth){
+        var age = 2019 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+retirement(65)(1992);
+
+var retirementUS = retirement(66);
+
+retirementUS(1990);
+
+var retirementGermany = retirement(65);
+retirementGermany(1990);
+retirementGermany(1992);
+
+var retirementIceland = retirement(67);
+retirementIceland(1990);
