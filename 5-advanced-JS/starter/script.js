@@ -218,6 +218,7 @@ function interviewQuestion(job){
 }
 */
 
+/*
 function interviewQuestion(job) {
     return function(name){
         if(job === 'designer'){
@@ -225,9 +226,52 @@ function interviewQuestion(job) {
         } else if (job === 'teacher') {
             console.log(`What subject do you teach, ${name}?`);
         } else {
-            console.log(`Hello ${name}, what do you do?`)
+            console.log(`Hello ${name}, what do you do?`);
         }
     }
 }
 
 interviewQuestion('designer')('Jane');
+interviewQuestion('teacher')('Elsa');
+*/
+
+//////////////////////////////////////////
+// Lecture: Bind, Call, and Apply
+
+/*
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay){
+        if(style === 'formal'){
+            console.log(`Good ${timeOfDay} ladies and gentleman, I'm ${this.name} and I'm a ${this.age} year old ${this.job}.`);
+        } else if (style === 'friendly'){
+            console.log(`Hey! What's up? I'm ${this.name} and I'm a ${this.age} year old ${this.job}. Have a nice ${timeOfDay}!`);
+        }       
+    }
+};
+
+john.presentation('formal', 'morning');
+john.presentation('friendly', 'afternoon');
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+}
+
+john.presentation.call(emily, 'friendly', 'afternoon');
+
+//john.presentation.apply(emily, ['friendly', 'afternoon']);
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+
+johnFriendly('morning');
+johnFriendly('night');
+*/
+
+///////////////////////////////////////////////
+// CODING CHALLENGE #7
+
+
